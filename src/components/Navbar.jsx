@@ -69,11 +69,12 @@ export default function Navbar() {
         </a>
 
         <button
+          type="button"
           aria-label="Abrir menú"
           onClick={() => setOpen(true)}
-          className="text-slate-900 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200/80 bg-white/80 text-slate-900 shadow-sm backdrop-blur transition-colors hover:bg-white active:scale-95 md:hidden"
         >
-          <Menu className="h-7 w-7" />
+          <Menu className="h-6 w-6" />
         </button>
       </div>
 
@@ -84,7 +85,7 @@ export default function Navbar() {
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed inset-0 z-40 flex h-screen flex-col items-center justify-center gap-8 bg-white/96 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex h-screen flex-col items-center justify-center gap-8 bg-white/80 backdrop-blur-3xl md:hidden"
           >
             <button
               aria-label="Cerrar menú"

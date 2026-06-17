@@ -68,7 +68,7 @@ export const services = [
 export const clients = [
   "Resguardo Documental",
   "Municipalidad de Córdoba",
-  "Automarketpro",
+  "AutoMarketPro",
   "Stellantis",
   "Ghia App",
 ];
@@ -87,7 +87,7 @@ export const team = [
     role: "Líder de Desarrollo",
     bio: "Diseña cómo se construye cada sistema para que sea sólido, seguro y pueda crecer junto a tu empresa.",
     initials: "TM",
-    accent: "from-fluent-violet to-fluent-cyan",
+    accent: "from-fluent-violet to-indigo-600",
     link: brand.linkedin,
   },
   {
@@ -95,7 +95,7 @@ export const team = [
     role: "Desarrollador Senior",
     bio: "Crea las pantallas y funciones con las que tu equipo trabaja todos los días, simples y fáciles de usar.",
     initials: "MC",
-    accent: "from-fluent-cyan to-fluent-mint",
+    accent: "from-indigo-600 to-fluent-violet",
     link: brand.linkedin,
   },
   {
@@ -103,7 +103,7 @@ export const team = [
     role: "Desarrollador",
     bio: "Hace que tu sistema se vea y funcione bien en la computadora y en el celular, sin complicaciones.",
     initials: "SG",
-    accent: "from-fluent-indigo to-fluent-cyan",
+    accent: "from-fluent-indigo to-indigo-700",
     link: brand.linkedin,
   },
 ];
@@ -159,7 +159,7 @@ export const testimonials = {
       name: "Laura R.",
       role: "Gerenta · Distribuidora",
       initials: "LR",
-      accent: "from-fluent-violet to-fluent-cyan",
+      accent: "from-fluent-violet to-indigo-600",
     },
     {
       quote:
@@ -167,7 +167,7 @@ export const testimonials = {
       name: "Roberta Martínez",
       role: "Dueña · Estudio",
       initials: "RM",
-      accent: "from-fluent-cyan to-fluent-mint",
+      accent: "from-indigo-600 to-fluent-violet",
     },
   ],
 };
