@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-fluent-night font-sans text-slate-200 antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.12), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(34, 211, 238, 0.1), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-fluent-violet/40 text-white;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070815;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#6366f1, #a855f7);
+    border-radius: 9999px;
+  }
+}
+
+@layer components {
+  /* Glassmorphism base */
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/10 bg-white/[0.06] backdrop-blur-2xl;
+  }
+
+  /* Texto con degradado animado */
+  .text-aurora {
+    @apply bg-aurora-text bg-clip-text text-transparent;
+    background-size: 200% auto;
+    @apply animate-gradient;
+  }
+
+  /* Botón principal con degradado animado */
+  .btn-aurora {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-title text-base font-700 text-white shadow-glow transition-transform duration-300;
+    background-image: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee);
+    background-size: 200% auto;
+    @apply animate-gradient;
+  }
+  .btn-aurora:hover {
+    @apply -translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-title text-base font-600 text-white/90 backdrop-blur-md transition-all duration-300;
+  }
+  .btn-ghost:hover {
+    @apply border-fluent-violet/50 bg-fluent-violet/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-fluent-violet/40 bg-fluent-violet/10 px-4 py-1.5 text-xs font-700 uppercase tracking-[0.18em] text-fluent-cyan;
+  }
+
+  .section-pad {
+    @apply px-6 py-24 md:py-32;
+  }
+}
