@@ -182,7 +182,7 @@ export const contact = {
 
 export const footer = {
   tagline:
-    "Convertimos el desorden del día a día en un sistema simple, que te ahorra tiempo y crece con tu empresa. Hecho en Argentina.",
+    "Convertimos el desorden del día a día en un sistema simple, que te ahorra tiempo y crece con tu empresa.",
   columns: [
     {
       title: "Navegación",
