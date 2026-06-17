@@ -14,8 +14,8 @@ export default function Team() {
             El equipo detrás de <span className="text-aurora">Fluent</span>
           </h3>
           <p className="mx-auto mt-4 max-w-2xl font-500 text-slate-600">
-            Especialistas apasionados por transformar procesos complejos en
-            soluciones digitales simples.
+            Especialistas en traducir procesos complejos en soluciones simples,
+            para que clientes, equipos y software hablen el mismo idioma.
           </p>
         </Reveal>
 

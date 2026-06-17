@@ -17,51 +17,51 @@ export const nav = [
 ];
 
 export const hero = {
-  badge: "Primera versión en 15 días",
+  badge: "MVP en 15 días",
   titleTop: "Software a medida",
-  titleGradient: "que fluye con tu negocio.",
+  titleGradient: "para que fluya tu negocio.",
   subtitle:
-    "Cuando las planillas de Excel ya no alcanzan, en Fluent ordenamos tu día a día con un sistema hecho a la medida de cómo trabaja tu equipo.",
-  primaryCta: "Hablemos ahora",
-  secondaryCta: "Ver qué hacemos",
+    "Transformamos el desorden del día a día en un sistema que trabaja por vos: operación ordenada, tareas automatizadas e información lista para decidir.",
+  primaryCta: "Hagamos fluir tu idea",
+  secondaryCta: "Ver soluciones",
 };
 
 export const stats = [
-  { value: 15, suffix: "+", label: "Proyectos entregados" },
-  { value: 99, suffix: "%", label: "Siempre disponible" },
-  { value: 5, suffix: "+", label: "Años de experiencia" },
+  { value: 15, suffix: "+", label: "Proyectos en marcha" },
+  { value: 99, suffix: "%", label: "Operación sin pausas" },
+  { value: 5, suffix: "+", label: "Años haciendo fluir software" },
 ];
 
 export const services = [
   {
     icon: "LayoutDashboard",
-    title: "Sistemas de gestión",
-    desc: "Programas hechos a la medida de cómo trabaja tu equipo. Ordená ventas, clientes, stock y más en un solo lugar.",
+    title: "Gestión que fluye",
+    desc: "Sistemas a medida para ordenar ventas, clientes, stock y operaciones en un solo lugar, con la lógica real de tu negocio.",
   },
   {
     icon: "Workflow",
-    title: "Automatización de tareas",
-    desc: "Que el sistema haga el trabajo repetitivo por vos: cargas, cálculos y tareas de todos los días, sin errores y en segundos.",
+    title: "Automatizaciones sin fricción",
+    desc: "Hacemos que las cargas, cálculos y tareas repetitivas corran solas, para que tu equipo invierta tiempo donde aporta valor.",
   },
   {
     icon: "Plug",
-    title: "Conexión entre sistemas",
-    desc: "Conectamos los programas que ya usás (facturación, pagos, planillas) para que la información viaje sola y no cargues nada dos veces.",
+    title: "Datos que conversan",
+    desc: "Integramos facturación, pagos, planillas y herramientas existentes para que la información viaje sin duplicar cargas.",
   },
   {
     icon: "Cloud",
-    title: "Tu sistema online 24/7",
-    desc: "Publicamos tu sistema o página web para que esté siempre disponible, rápido y seguro, todos los días del año.",
+    title: "Software siempre en línea",
+    desc: "Publicamos tu sistema o sitio web para que esté disponible, rápido y seguro todos los días, desde cualquier lugar.",
   },
   {
     icon: "ShieldCheck",
-    title: "Soporte y mejoras",
-    desc: "No desaparecemos después de la entrega. Revisamos que todo funcione, sumamos mejoras y te respondemos cuando nos necesitás.",
+    title: "Soporte que acompaña",
+    desc: "Después de la entrega seguimos cerca: revisamos, mejoramos y respondemos para que la solución siga fluyendo.",
   },
   {
     icon: "LineChart",
-    title: "Reportes claros",
-    desc: "Convertimos tus datos en tableros y reportes fáciles de leer, para que sepas cómo va tu negocio de un vistazo.",
+    title: "Decisiones en claro",
+    desc: "Convertimos datos en tableros simples de leer, para ver el pulso del negocio y decidir con información al día.",
   },
 ];
 
@@ -109,45 +109,45 @@ export const team = [
 ];
 
 export const benefits = {
-  badge: "Por qué digitalizar",
-  titleTop: "Cómo impactamos en",
-  titleGradient: "tu negocio",
+  badge: "Por qué hacer fluir tu operación",
+  titleTop: "De procesos trabados a",
+  titleGradient: "clientes satisfechos",
   subtitle:
-    "Más que un sistema: una forma de ordenar, ahorrar tiempo y hacer crecer tu negocio.",
+    "Más que software: una forma de alinear equipos, ahorrar tiempo y darles a tus clientes una experiencia más simple.",
   items: [
     {
       icon: "LineChart",
-      title: "Mejores decisiones",
-      desc: "Toda tu información en un solo lugar y al día. Vas a ver con números claros cómo va tu negocio y dónde están las oportunidades.",
+      title: "Información que fluye",
+      desc: "Toda la información en un solo lugar y al día, con números claros para detectar oportunidades antes de que se escapen.",
     },
     {
       icon: "Zap",
-      title: "Menos tareas a mano",
-      desc: "Al pasar a un sistema (ventas, facturación, stock) se reducen las tareas repetitivas y los errores. Ahorrás tiempo y plata.",
+      title: "Menos pasos, más ritmo",
+      desc: "Ventas, facturación, stock y seguimiento con menos tareas manuales, menos errores y más tiempo para atender clientes.",
     },
     {
       icon: "Users",
-      title: "Clientes más contentos",
-      desc: "Hacé seguimiento de cada cliente para atenderlo mejor y ofrecerle lo que busca. Tus clientes se sienten bien atendidos.",
+      title: "Clientes en sintonía",
+      desc: "Seguí cada consulta, pedido o cuenta con contexto completo para responder mejor y construir relaciones más fluidas.",
     },
     {
       icon: "TrendingUp",
-      title: "Un negocio más profesional",
-      desc: "Una imagen moderna y ordenada que genera confianza en clientes y proveedores, y te diferencia de la competencia.",
+      title: "Crecimiento sin enredos",
+      desc: "Una operación moderna y ordenada que genera confianza, se adapta al volumen y te diferencia cuando el negocio crece.",
     },
   ],
 };
 
 export const testimonials = {
-  badge: "Testimonios",
-  titleTop: "Lo que dicen",
-  titleGradient: "nuestros clientes",
+  badge: "Clientes en modo Fluent",
+  titleTop: "Cuando el software fluye,",
+  titleGradient: "el cliente lo nota",
   subtitle:
-    "Acompañamos cada proyecto de principio a fin, con soporte cercano en todo momento.",
+    "Acompañamos cada proyecto de principio a fin para que la solución no solo funcione, sino que se sienta natural en el día a día.",
   items: [
     {
       quote:
-        "Ordenaron toda nuestra gestión de vehículos, proveedores, stock y clientes en un solo sistema. Todo mucho más práctico y sin errores.",
+        "Ordenaron toda nuestra gestión de vehículos, proveedores, stock y clientes en un solo sistema. Ahora todo fluye más práctico y sin errores.",
       name: "Mariano Tizado",
       role: "Dueño · Taller automotor",
       initials: "MT",
@@ -155,7 +155,7 @@ export const testimonials = {
     },
     {
       quote:
-        "La plataforma para gestionar pedidos cambió nuestro día a día. Mis clientes están felices y yo administro todo organizado desde un panel.",
+        "La plataforma de pedidos cambió nuestro día a día. Mis clientes tienen respuestas más rápidas y yo administro todo desde un panel claro.",
       name: "Laura R.",
       role: "Gerenta · Distribuidora",
       initials: "LR",
@@ -163,7 +163,7 @@ export const testimonials = {
     },
     {
       quote:
-        "No sabía cómo resolver el recupero de clases de mis alumnos. Me dieron la idea y desarrollaron la app completa. Un golazo.",
+        "No sabía cómo resolver el recupero de clases de mis alumnos. Le encontraron la vuelta, desarrollaron la app completa y la gestión empezó a fluir.",
       name: "Roberta Martínez",
       role: "Dueña · Estudio",
       initials: "RM",
@@ -173,16 +173,16 @@ export const testimonials = {
 };
 
 export const contact = {
-  badge: "Respuesta inmediata",
-  titleTop: "Impulsamos",
-  titleGradient: "visión",
-  subtitle: "Llevá tu negocio al siguiente nivel con software que fluye.",
-  cta: "Hablemos ahora",
+  badge: "Respuesta rápida, solución fluida",
+  titleTop: "Hagamos fluir",
+  titleGradient: "negocio",
+  subtitle: "Contanos qué proceso querés ordenar y lo convertimos en software simple, útil y listo para crecer.",
+  cta: "Quiero una solución Fluent",
 };
 
 export const footer = {
   tagline:
-    "Convertimos el desorden del día a día en un sistema simple, que te ahorra tiempo y crece con tu empresa.",
+    "Convertimos procesos trabados en software claro: soluciones para clientes, equipos y negocios que necesitan avanzar sin fricción.",
   columns: [
     {
       title: "Navegación",
@@ -197,10 +197,10 @@ export const footer = {
     {
       title: "Qué hacemos",
       links: [
-        { label: "Sistemas de gestión", href: "#servicios" },
-        { label: "Automatización de tareas", href: "#servicios" },
-        { label: "Conexión entre sistemas", href: "#servicios" },
-        { label: "Reportes claros", href: "#servicios" },
+        { label: "Gestión que fluye", href: "#servicios" },
+        { label: "Automatizaciones sin fricción", href: "#servicios" },
+        { label: "Datos que conversan", href: "#servicios" },
+        { label: "Decisiones en claro", href: "#servicios" },
       ],
     },
   ],

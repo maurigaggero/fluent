@@ -9,12 +9,12 @@ export default function Clients() {
     >
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
-          <h3 className="font-title text-xs font-800 uppercase tracking-[0.5em] text-fluent-cyan">
-            Confían en nuestro trabajo
+          <h3 className="font-title text-xs font-800 uppercase tracking-[0.5em] text-fluent-violet">
+            Clientes que fluyen con Fluent
           </h3>
           <p className="mx-auto mt-4 max-w-2xl font-500 text-slate-600">
-            Empresas e instituciones que ya transformaron su operación con
-            nuestro software.
+            Empresas e instituciones que ordenaron procesos, conectaron equipos
+            y mejoraron su atención con software a medida.
           </p>
         </Reveal>
 
