@@ -109,7 +109,7 @@ export const team = [
 ];
 
 export const benefits = {
-  badge: "Por qué hacer fluir tu operación",
+  badge: "Flujo en foco",
   titleTop: "De procesos trabados a",
   titleGradient: "clientes satisfechos",
   subtitle:
@@ -173,10 +173,11 @@ export const testimonials = {
 };
 
 export const contact = {
-  badge: "Respuesta rápida, solución fluida",
+  badge: "Hablamos y fluye",
   titleTop: "Hagamos fluir",
   titleGradient: "negocio",
-  subtitle: "Contanos qué proceso querés ordenar y lo convertimos en software simple, útil y listo para crecer.",
+  subtitle:
+    "Respuesta rápida, solución fluida. Contanos qué proceso querés ordenar y lo convertimos en software simple, útil y listo para crecer.",
   cta: "Quiero una solución Fluent",
 };
 

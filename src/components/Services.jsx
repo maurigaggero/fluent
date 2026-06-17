@@ -7,7 +7,7 @@ export default function Services() {
     <section id="servicios" className="section-pad">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mb-16 max-w-3xl">
-          <span className="badge mb-6">Soluciones para clientes y software</span>
+          <span className="badge mb-6">Código con propósito</span>
           <h3 className="mt-6 font-title text-3xl font-800 leading-tight text-slate-900 md:text-5xl">
             Software que hace <span className="text-aurora">click y fluye</span>
           </h3>
