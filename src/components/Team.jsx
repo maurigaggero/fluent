@@ -6,14 +6,14 @@ export default function Team() {
   return (
     <section
       id="equipo"
-      className="section-pad border-t border-white/5 bg-white/[0.02]"
+      className="section-pad border-t border-slate-200/70 bg-slate-50/60"
     >
       <div className="mx-auto max-w-7xl">
         <Reveal className="mb-16 text-center">
-          <h3 className="font-title text-4xl font-800 text-white">
+          <h3 className="font-title text-4xl font-800 text-slate-900">
             El equipo detrás de <span className="text-aurora">Fluent</span>
           </h3>
-          <p className="mx-auto mt-4 max-w-2xl font-500 text-slate-400">
+          <p className="mx-auto mt-4 max-w-2xl font-500 text-slate-600">
             Especialistas apasionados por transformar procesos complejos en
             soluciones digitales simples.
           </p>

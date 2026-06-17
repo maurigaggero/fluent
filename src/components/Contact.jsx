@@ -6,9 +6,9 @@ export default function Contact() {
   return (
     <section id="contacto" className="section-pad">
       <div className="mx-auto max-w-4xl">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-6 py-20 text-center backdrop-blur-2xl md:px-16">
-          <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-fluent-indigo/20 blur-[120px]" />
-          <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-fluent-cyan/20 blur-[120px]" />
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/85 px-6 py-20 text-center shadow-[0_30px_80px_-40px_rgba(15,23,42,0.4)] backdrop-blur-2xl md:px-16">
+          <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-fluent-indigo/15 blur-[120px]" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-fluent-cyan/15 blur-[120px]" />
 
           <div className="relative flex flex-col items-center">
             <Reveal>
@@ -19,14 +19,14 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h3 className="font-title text-5xl font-800 leading-tight text-white md:text-7xl">
+              <h3 className="font-title text-5xl font-800 leading-tight text-slate-900 md:text-7xl">
                 {contact.titleTop} <br className="hidden md:block" /> tu{" "}
                 <span className="text-aurora">{contact.titleGradient}</span>
               </h3>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-6 max-w-xl text-lg font-500 text-slate-400 md:text-xl">
+              <p className="mx-auto mt-6 max-w-xl text-lg font-500 text-slate-600 md:text-xl">
                 {contact.subtitle}
               </p>
             </Reveal>

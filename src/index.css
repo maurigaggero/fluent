@@ -8,15 +8,16 @@
   }
 
   body {
-    @apply bg-fluent-night font-sans text-slate-200 antialiased;
+    @apply bg-slate-50 font-sans text-slate-900 antialiased;
     background-image:
-      radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.12), transparent 45%),
-      radial-gradient(circle at 85% 10%, rgba(34, 211, 238, 0.1), transparent 40%);
+      radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.14), transparent 42%),
+      radial-gradient(circle at 85% 10%, rgba(34, 211, 238, 0.12), transparent 38%),
+      linear-gradient(180deg, #ffffff 0%, #f8fafc 48%, #f1f5f9 100%);
     background-attachment: fixed;
   }
 
   ::selection {
-    @apply bg-fluent-violet/40 text-white;
+    @apply bg-fluent-violet/20 text-slate-950;
   }
 
   /* Scrollbar */
@@ -24,7 +25,7 @@
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #070815;
+    background: #f8fafc;
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(#6366f1, #a855f7);
@@ -35,11 +36,11 @@
 @layer components {
   /* Glassmorphism base */
   .glass {
-    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+    @apply border border-slate-200/80 bg-white/75 shadow-[0_16px_50px_-28px_rgba(15,23,42,0.35)] backdrop-blur-xl;
   }
 
   .glass-strong {
-    @apply border border-white/10 bg-white/[0.06] backdrop-blur-2xl;
+    @apply border border-slate-200 bg-white/90 shadow-[0_20px_70px_-34px_rgba(15,23,42,0.4)] backdrop-blur-2xl;
   }
 
   /* Texto con degradado animado */
@@ -61,14 +62,14 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-title text-base font-600 text-white/90 backdrop-blur-md transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-8 py-4 font-title text-base font-600 text-slate-800 shadow-sm backdrop-blur-md transition-all duration-300;
   }
   .btn-ghost:hover {
-    @apply border-fluent-violet/50 bg-fluent-violet/10;
+    @apply border-fluent-violet/40 bg-fluent-violet/10 text-fluent-violet;
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-fluent-violet/40 bg-fluent-violet/10 px-4 py-1.5 text-xs font-700 uppercase tracking-[0.18em] text-fluent-cyan;
+    @apply inline-flex items-center gap-2 rounded-full border border-fluent-violet/25 bg-white/80 px-4 py-1.5 text-xs font-700 uppercase tracking-[0.18em] text-fluent-violet shadow-sm;
   }
 
   .section-pad {

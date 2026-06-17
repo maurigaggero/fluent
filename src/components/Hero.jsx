@@ -34,7 +34,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="mt-8 font-title text-5xl font-800 leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-8xl"
+            className="mt-8 font-title text-5xl font-800 leading-[0.98] tracking-tight text-slate-900 sm:text-6xl lg:text-8xl"
           >
             {hero.titleTop} <br />
             <span className="text-aurora">{hero.titleGradient}</span>
@@ -42,7 +42,7 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-8 max-w-2xl text-lg font-500 leading-relaxed text-slate-400 md:text-2xl"
+            className="mt-8 max-w-2xl text-lg font-500 leading-relaxed text-slate-600 md:text-2xl"
           >
             {hero.subtitle}
           </motion.p>
@@ -66,10 +66,10 @@ export default function Hero() {
           >
             {stats.map((s) => (
               <div key={s.label} className="glass rounded-2xl px-5 py-4">
-                <dt className="font-title text-3xl font-800 text-white">
+                <dt className="font-title text-3xl font-800 text-slate-900">
                   <Counter to={s.value} suffix={s.suffix} />
                 </dt>
-                <dd className="mt-1 text-xs font-500 uppercase tracking-wider text-slate-400">
+                <dd className="mt-1 text-xs font-500 uppercase tracking-wider text-slate-500">
                   {s.label}
                 </dd>
               </div>
