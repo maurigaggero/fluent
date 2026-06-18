@@ -19,28 +19,28 @@ export const nav = [
 export const hero = {
   badge: "MVP en 15 días",
   titleTop: "Software a medida",
-  titleGradient: "para que fluya tu negocio.",
+  titleGradient: "para fluir tu negocio.",
   subtitle:
     "Transformamos el desorden del día a día en un sistema que trabaja por vos: operación ordenada, tareas automatizadas e información lista para decidir.",
-  primaryCta: "Hagamos fluir tu idea",
+  primaryCta: "Hablemos de tu sistema",
   secondaryCta: "Ver soluciones",
 };
 
 export const stats = [
-  { value: 15, suffix: "+", label: "Proyectos en marcha" },
-  { value: 99, suffix: "%", label: "Operación sin pausas" },
   { value: 5, suffix: "+", label: "Años haciendo fluir software" },
+  { value: 3, suffix: "", label: "Procesos clave: ventas, stock y gestión" },
+  { value: 1, suffix: "", label: "Equipo cercano de principio a fin" },
 ];
 
 export const services = [
   {
     icon: "LayoutDashboard",
-    title: "Gestión que fluye",
+    title: "Gestión ordenada",
     desc: "Sistemas a medida para ordenar ventas, clientes, stock y operaciones en un solo lugar, con la lógica real de tu negocio.",
   },
   {
     icon: "Workflow",
-    title: "Automatizaciones sin fricción",
+    title: "Automatizaciones simples",
     desc: "Hacemos que las cargas, cálculos y tareas repetitivas corran solas, para que tu equipo invierta tiempo donde aporta valor.",
   },
   {
@@ -69,7 +69,6 @@ export const clients = [
   "Resguardo Documental",
   "Municipalidad de Córdoba",
   "AutoMarketPro",
-  "Stellantis",
   "Ghia App",
 ];
 
@@ -109,7 +108,7 @@ export const team = [
 ];
 
 export const benefits = {
-  badge: "Flujo en foco",
+  badge: "Procesos en foco",
   titleTop: "De procesos trabados a",
   titleGradient: "clientes satisfechos",
   subtitle:
@@ -117,7 +116,7 @@ export const benefits = {
   items: [
     {
       icon: "LineChart",
-      title: "Información que fluye",
+      title: "Información al día",
       desc: "Toda la información en un solo lugar y al día, con números claros para detectar oportunidades antes de que se escapen.",
     },
     {
@@ -127,8 +126,8 @@ export const benefits = {
     },
     {
       icon: "Users",
-      title: "Clientes en sintonía",
-      desc: "Seguí cada consulta, pedido o cuenta con contexto completo para responder mejor y construir relaciones más fluidas.",
+      title: "Clientes mejor atendidos",
+      desc: "Seguí cada consulta, pedido o cuenta con contexto completo para responder mejor y construir relaciones más claras.",
     },
     {
       icon: "TrendingUp",
@@ -140,14 +139,14 @@ export const benefits = {
 
 export const testimonials = {
   badge: "Clientes en modo Fluent",
-  titleTop: "Cuando el software fluye,",
-  titleGradient: "el cliente lo nota",
+  titleTop: "Cuando el sistema ordena,",
+  titleGradient: "el trabajo mejora",
   subtitle:
     "Acompañamos cada proyecto de principio a fin para que la solución no solo funcione, sino que se sienta natural en el día a día.",
   items: [
     {
       quote:
-        "Ordenaron toda nuestra gestión de vehículos, proveedores, stock y clientes en un solo sistema. Ahora todo fluye más práctico y sin errores.",
+        "Antes teníamos vehículos, proveedores, stock y clientes repartidos en planillas y mensajes. Ahora consultamos todo desde un solo sistema y evitamos errores de carga.",
       name: "Mariano Tizado",
       role: "Dueño · Taller automotor",
       initials: "MT",
@@ -155,35 +154,35 @@ export const testimonials = {
     },
     {
       quote:
-        "La plataforma de pedidos cambió nuestro día a día. Mis clientes tienen respuestas más rápidas y yo administro todo desde un panel claro.",
-      name: "Laura R.",
+        "Necesitábamos tomar pedidos sin depender de audios y chats sueltos. Con el panel podemos ver estados, responder más rápido y tener la información ordenada.",
+      name: "Laura Ferrando",
       role: "Gerenta · Distribuidora",
-      initials: "LR",
+      initials: "LF",
       accent: "from-fluent-violet to-indigo-600",
     },
     {
       quote:
-        "No sabía cómo resolver el recupero de clases de mis alumnos. Le encontraron la vuelta, desarrollaron la app completa y la gestión empezó a fluir.",
-      name: "Roberta Martínez",
+        "El recupero de clases nos llevaba mucho tiempo administrativo. Armaron una app simple para organizar horarios, alumnos y avisos sin perseguir cada caso a mano.",
+      name: "Fatima Martínez",
       role: "Dueña · Estudio",
-      initials: "RM",
+      initials: "FM",
       accent: "from-indigo-600 to-fluent-violet",
     },
   ],
 };
 
 export const contact = {
-  badge: "Hablamos y fluye",
+  badge: "Hablemos de tu proceso",
   titleTop: "Hagamos fluir",
   titleGradient: "negocio",
   subtitle:
-    "Respuesta rápida, solución fluida. Contanos qué proceso querés ordenar y lo convertimos en software simple, útil y listo para crecer.",
+    "Contanos qué proceso querés mejorar y vemos juntos cómo convertirlo en software simple, útil y listo para crecer.",
   cta: "Quiero una solución Fluent",
 };
 
 export const footer = {
   tagline:
-    "Convertimos procesos trabados en software claro: soluciones para clientes, equipos y negocios que necesitan avanzar sin fricción.",
+    "Convertimos procesos trabados en software claro: soluciones para clientes, equipos y negocios que necesitan trabajar mejor.",
   columns: [
     {
       title: "Navegación",
@@ -198,9 +197,9 @@ export const footer = {
     {
       title: "Qué hacemos",
       links: [
-        { label: "Gestión que fluye", href: "#servicios" },
-        { label: "Automatizaciones sin fricción", href: "#servicios" },
-        { label: "Datos que conversan", href: "#servicios" },
+        { label: "Gestión ordenada", href: "#servicios" },
+        { label: "Automatizaciones simples", href: "#servicios" },
+        { label: "Datos conectados", href: "#servicios" },
         { label: "Decisiones en claro", href: "#servicios" },
       ],
     },

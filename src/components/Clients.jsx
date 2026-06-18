@@ -10,7 +10,7 @@ export default function Clients() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mb-12 text-center">
           <h3 className="font-title text-xs font-800 uppercase tracking-[0.5em] text-fluent-violet">
-            Clientes que fluyen con Fluent
+            Casos reales
           </h3>
           <p className="mx-auto mt-4 max-w-2xl font-500 text-slate-600">
             Empresas e instituciones que ordenaron procesos, conectaron equipos
@@ -18,14 +18,16 @@ export default function Clients() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="flex flex-wrap justify-center gap-4">
           {clients.map((name, i) => (
             <Reveal
               key={name}
               delay={i * 0.08}
-              className="group flex min-h-[120px] items-center justify-center rounded-2xl border border-slate-200/80 bg-white/70 px-6 py-8 text-center shadow-[0_14px_40px_-30px_rgba(15,23,42,0.35)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-fluent-cyan/40 hover:bg-white"
+              className="group relative flex min-h-[120px] w-[calc(50%-0.5rem)] items-center justify-center overflow-hidden rounded-2xl border border-white/60 bg-white/40 px-6 py-8 text-center shadow-[0_24px_60px_-32px_rgba(79,70,229,0.4)] ring-1 ring-inset ring-white/50 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1.5 hover:border-white/80 hover:shadow-[0_36px_80px_-30px_rgba(168,85,247,0.45)] sm:w-[calc(33.333%-0.667rem)] lg:w-[220px]"
             >
-              <span className="font-title text-lg font-700 tracking-tight text-slate-400 transition-colors duration-300 group-hover:text-slate-900 md:text-xl">
+              <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br from-fluent-indigo to-fluent-cyan opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent" />
+              <span className="relative font-title text-lg font-700 tracking-tight text-slate-500 transition-colors duration-300 group-hover:text-slate-900 md:text-xl">
                 {name}
               </span>
             </Reveal>
