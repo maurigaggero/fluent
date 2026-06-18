@@ -31,15 +31,15 @@ export default function Contact() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.3}>
+            <Reveal delay={0.3} className="w-full">
               <a
                 href={brand.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-aurora mt-12 !rounded-2xl !px-10 !py-5 !text-lg transition-transform hover:scale-105"
+                className="btn-aurora mt-12 flex w-full !rounded-2xl !px-6 !py-4 !text-base transition-transform hover:scale-105 sm:inline-flex sm:w-auto sm:!px-10 sm:!py-5 sm:!text-lg"
               >
-                <MessageCircle className="h-6 w-6" />
-                {contact.cta}
+                <MessageCircle className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
+                <span className="whitespace-nowrap">{contact.cta}</span>
               </a>
             </Reveal>
           </div>
