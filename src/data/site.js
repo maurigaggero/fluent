@@ -141,8 +141,8 @@ export const testimonials = [
 
 export const contact = {
   badge: "Discovery sin costo",
-  titleTop: "Hablemos de tu",
-  titleGradient: "proyecto",
+  titleTop: "Hagamos fluir",
+  titleGradient: "tu negocio",
   subtitle:
     "En 30 minutos te decimos si podemos ayudarte, cómo sería el alcance y en qué plazo lo entregamos.",
   cta: "Agendar reunión",
