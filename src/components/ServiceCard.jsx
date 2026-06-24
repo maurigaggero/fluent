@@ -43,7 +43,7 @@ export default function ServiceCard({ service, index }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 0.9, 0.2, 1] }}
       whileHover={{ y: -6 }}
-      className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/80 p-8 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl transition-colors duration-300 hover:border-fluent-violet/40"
+      className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl transition-colors duration-300 hover:border-fluent-violet/40 sm:rounded-3xl sm:p-8"
     >
       {/* Spotlight glow que sigue al cursor */}
       <div
@@ -55,13 +55,13 @@ export default function ServiceCard({ service, index }) {
       />
 
       <div className="relative">
-        <div className="mb-6 inline-flex rounded-2xl bg-gradient-to-br from-fluent-indigo/15 to-fluent-cyan/15 p-3 ring-1 ring-slate-200">
-          <Icon className="h-7 w-7 text-fluent-indigo" strokeWidth={1.6} />
+        <div className="mb-4 inline-flex rounded-xl bg-gradient-to-br from-fluent-indigo/15 to-fluent-cyan/15 p-2.5 ring-1 ring-slate-200 sm:mb-6 sm:rounded-2xl sm:p-3">
+          <Icon className="h-6 w-6 text-fluent-indigo sm:h-7 sm:w-7" strokeWidth={1.6} />
         </div>
-        <h4 className="mb-3 font-title text-2xl font-700 text-slate-900">
+        <h4 className="mb-2 font-title text-lg font-700 text-slate-900 sm:mb-3 sm:text-2xl">
           {service.title}
         </h4>
-        <p className="text-[15px] font-500 leading-relaxed text-slate-600">
+        <p className="text-sm font-500 leading-relaxed text-slate-600 sm:text-[15px]">
           {service.desc}
         </p>
       </div>

@@ -9,27 +9,58 @@ export const brand = {
 
 export const nav = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Clientes", href: "#empresas" },
-  { label: "Testimonios", href: "#testimonios" },
-  { label: "Equipo", href: "#equipo" },
+  { label: "Clientes", href: "#clientes" },
   { label: "Contacto", href: "#contacto" },
 ];
 
 export const hero = {
-  badge: "MVP en 15 días",
-  titleTop: "Software a medida",
-  titleGradient: "para fluir tu negocio.",
+  image: "/images/hero-team-argentina.png",
+  imageAlt: "Equipo argentino de Fluent colaborando en el diseño y desarrollo de un producto digital",
+  title: [
+    "Tu ",
+    { highlight: "sistema a medida" },
+    ", ",
+    { highlight: "listo para operar." },
+  ],
   subtitle:
-    "Transformamos el desorden del día a día en un sistema que trabaja por vos: operación ordenada, tareas automatizadas e información lista para decidir.",
-  primaryCta: "Hablemos de tu sistema",
-  secondaryCta: "Ver soluciones",
+    "Equipo que diseña, desarrolla e implementa software real para PyMEs y startups — con entregas semanales, código limpio y soporte post-lanzamiento.",
+  primaryCta: "Agendar reunión",
 };
 
 export const stats = [
-  { value: 5, suffix: "+", label: "Años haciendo fluir software" },
-  { value: 3, suffix: "", label: "Procesos clave: ventas, stock y gestión" },
-  { value: 1, suffix: "", label: "Equipo cercano de principio a fin" },
+  { emoji: "💻", value: 15, suffix: "+", label: "Proyectos" },
+  { emoji: "⚡", value: 4, suffix: "–8", label: "Semanas" },
+  { emoji: "✅", value: 100, suffix: "%", label: "Código tuyo" },
+];
+
+export const industries = [
+  "Gestión interna",
+  "Automatización",
+  "SaaS",
+  "Integraciones API",
+  "E-commerce",
+  "Salud",
+  "Logística",
+  "Educación",
+  "Finanzas",
+  "B2B",
+];
+
+export const process = {
+  label: "De la idea al lanzamiento 🚀",
+  steps: [
+    { num: "01", emoji: "💡", title: "Discovery", duration: "3–5 días" },
+    { num: "02", emoji: "🎨", title: "Diseño", duration: "1 semana" },
+    { num: "03", emoji: "⚡", title: "Desarrollo", duration: "3–5 semanas" },
+    { num: "04", emoji: "✅", title: "QA", duration: "3–5 días" },
+    { num: "05", emoji: "🚀", title: "Lanzamiento", duration: "2–3 días", highlight: true },
+  ],
+};
+
+export const trustPillars = [
+  { icon: "Zap", label: "Entrega en semanas" },
+  { icon: "Gem", label: "Código escalable" },
+  { icon: "ShieldCheck", label: "Soporte incluido" },
 ];
 
 export const services = [
@@ -65,6 +96,15 @@ export const services = [
   },
 ];
 
+export const featuredCase = {
+  client: "AutoMarketPro",
+  industry: "Automotriz · Gestión",
+  challenge:
+    "Vehículos, proveedores, stock y clientes repartidos en planillas y mensajes sueltos.",
+  result:
+    "Un sistema centralizado que elimina errores de carga y acelera la operación diaria.",
+};
+
 export const clients = [
   "Resguardo Documental",
   "Municipalidad de Córdoba",
@@ -72,136 +112,38 @@ export const clients = [
   "Ghia App",
 ];
 
-export const team = [
+export const testimonials = [
   {
-    name: "Mauricio Gaggero",
-    role: "Fundador y Director",
-    bio: "Lidera cada proyecto de principio a fin. Se asegura de entender tu negocio para que la solución resuelva lo que de verdad necesitás.",
-    initials: "MG",
+    quote:
+      "Antes teníamos vehículos, proveedores, stock y clientes repartidos en planillas y mensajes. Ahora consultamos todo desde un solo sistema y evitamos errores de carga.",
+    name: "Mariano Tizado",
+    role: "Dueño · Taller automotor",
+    initials: "MT",
     accent: "from-fluent-indigo to-fluent-violet",
-    link: brand.linkedin,
   },
   {
-    name: "Tomas Malvissi",
-    role: "Líder de Desarrollo",
-    bio: "Diseña cómo se construye cada sistema para que sea sólido, seguro y pueda crecer junto a tu empresa.",
-    initials: "TM",
+    quote:
+      "Necesitábamos tomar pedidos sin depender de audios y chats sueltos. Con el panel podemos ver estados, responder más rápido y tener la información ordenada.",
+    name: "Laura Ferrando",
+    role: "Gerenta · Distribuidora",
+    initials: "LF",
     accent: "from-fluent-violet to-indigo-600",
-    link: brand.linkedin,
   },
   {
-    name: "Matias Carrera",
-    role: "Desarrollador Senior",
-    bio: "Crea las pantallas y funciones con las que tu equipo trabaja todos los días, simples y fáciles de usar.",
-    initials: "MC",
+    quote:
+      "El recupero de clases nos llevaba mucho tiempo administrativo. Armaron una app simple para organizar horarios, alumnos y avisos sin perseguir cada caso a mano.",
+    name: "Fatima Martínez",
+    role: "Dueña · Estudio",
+    initials: "FM",
     accent: "from-indigo-600 to-fluent-violet",
-    link: brand.linkedin,
-  },
-  {
-    name: "Stefano Gaggero",
-    role: "Desarrollador",
-    bio: "Hace que tu sistema se vea y funcione bien en la computadora y en el celular, sin complicaciones.",
-    initials: "SG",
-    accent: "from-fluent-indigo to-indigo-700",
-    link: brand.linkedin,
   },
 ];
 
-export const benefits = {
-  badge: "Procesos en foco",
-  titleTop: "De procesos trabados a",
-  titleGradient: "clientes satisfechos",
-  subtitle:
-    "Más que software: una forma de alinear equipos, ahorrar tiempo y darles a tus clientes una experiencia más simple.",
-  items: [
-    {
-      icon: "LineChart",
-      title: "Información al día",
-      desc: "Toda la información en un solo lugar y al día, con números claros para detectar oportunidades antes de que se escapen.",
-    },
-    {
-      icon: "Zap",
-      title: "Menos pasos, más ritmo",
-      desc: "Ventas, facturación, stock y seguimiento con menos tareas manuales, menos errores y más tiempo para atender clientes.",
-    },
-    {
-      icon: "Users",
-      title: "Clientes mejor atendidos",
-      desc: "Seguí cada consulta, pedido o cuenta con contexto completo para responder mejor y construir relaciones más claras.",
-    },
-    {
-      icon: "TrendingUp",
-      title: "Crecimiento sin enredos",
-      desc: "Una operación moderna y ordenada que genera confianza, se adapta al volumen y te diferencia cuando el negocio crece.",
-    },
-  ],
-};
-
-export const testimonials = {
-  badge: "Clientes en modo Fluent",
-  titleTop: "Cuando el sistema ordena,",
-  titleGradient: "el trabajo mejora",
-  subtitle:
-    "Acompañamos cada proyecto de principio a fin para que la solución no solo funcione, sino que se sienta natural en el día a día.",
-  items: [
-    {
-      quote:
-        "Antes teníamos vehículos, proveedores, stock y clientes repartidos en planillas y mensajes. Ahora consultamos todo desde un solo sistema y evitamos errores de carga.",
-      name: "Mariano Tizado",
-      role: "Dueño · Taller automotor",
-      initials: "MT",
-      accent: "from-fluent-indigo to-fluent-violet",
-    },
-    {
-      quote:
-        "Necesitábamos tomar pedidos sin depender de audios y chats sueltos. Con el panel podemos ver estados, responder más rápido y tener la información ordenada.",
-      name: "Laura Ferrando",
-      role: "Gerenta · Distribuidora",
-      initials: "LF",
-      accent: "from-fluent-violet to-indigo-600",
-    },
-    {
-      quote:
-        "El recupero de clases nos llevaba mucho tiempo administrativo. Armaron una app simple para organizar horarios, alumnos y avisos sin perseguir cada caso a mano.",
-      name: "Fatima Martínez",
-      role: "Dueña · Estudio",
-      initials: "FM",
-      accent: "from-indigo-600 to-fluent-violet",
-    },
-  ],
-};
-
 export const contact = {
-  badge: "Hablemos de tu proceso",
-  titleTop: "Hagamos fluir",
-  titleGradient: "negocio",
+  badge: "Discovery sin costo",
+  titleTop: "Hablemos de tu",
+  titleGradient: "proyecto",
   subtitle:
-    "Contanos qué proceso querés mejorar y vemos juntos cómo convertirlo en software simple, útil y listo para crecer.",
-  cta: "Quiero una solución Fluent",
-};
-
-export const footer = {
-  tagline:
-    "Convertimos procesos trabados en software claro: soluciones para clientes, equipos y negocios que necesitan trabajar mejor.",
-  columns: [
-    {
-      title: "Navegación",
-      links: [
-        { label: "Servicios", href: "#servicios" },
-        { label: "Beneficios", href: "#beneficios" },
-        { label: "Clientes", href: "#empresas" },
-        { label: "Equipo", href: "#equipo" },
-        { label: "Contacto", href: "#contacto" },
-      ],
-    },
-    {
-      title: "Qué hacemos",
-      links: [
-        { label: "Gestión ordenada", href: "#servicios" },
-        { label: "Automatizaciones simples", href: "#servicios" },
-        { label: "Datos conectados", href: "#servicios" },
-        { label: "Decisiones en claro", href: "#servicios" },
-      ],
-    },
-  ],
+    "En 30 minutos te decimos si podemos ayudarte, cómo sería el alcance y en qué plazo lo entregamos.",
+  cta: "Agendar reunión",
 };

@@ -8,12 +8,19 @@
   }
 
   body {
-    @apply bg-slate-50 font-sans text-slate-900 antialiased;
+    @apply overflow-x-hidden bg-slate-50 font-sans text-slate-900 antialiased;
     background-image:
       radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.14), transparent 42%),
       radial-gradient(circle at 85% 10%, rgba(34, 211, 238, 0.12), transparent 38%),
       linear-gradient(180deg, #ffffff 0%, #f8fafc 48%, #f1f5f9 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  @media (min-width: 768px) {
+    body {
+      background-attachment: fixed;
+    }
   }
 
   ::selection {
@@ -50,9 +57,15 @@
     @apply animate-gradient;
   }
 
+  @supports not (background-clip: text) {
+    .text-aurora {
+      @apply bg-none text-fluent-violet;
+    }
+  }
+
   /* Botón principal con degradado animado */
   .btn-aurora {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-title text-base font-700 text-white shadow-glow transition-transform duration-300;
+    @apply relative inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-title text-sm font-700 text-white shadow-glow transition-transform duration-300 sm:w-auto sm:rounded-2xl sm:px-8 sm:py-4 sm:text-base;
     background-image: linear-gradient(90deg, #6366f1, #a855f7, #22d3ee);
     background-size: 200% auto;
     @apply animate-gradient;
@@ -62,17 +75,61 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white/80 px-8 py-4 font-title text-base font-600 text-slate-800 shadow-sm backdrop-blur-md transition-all duration-300;
+    @apply inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/80 px-5 py-3.5 font-title text-sm font-600 text-slate-800 shadow-sm backdrop-blur-md transition-all duration-300 sm:w-auto sm:rounded-2xl sm:px-8 sm:py-4 sm:text-base;
   }
   .btn-ghost:hover {
     @apply border-fluent-violet/40 bg-fluent-violet/10 text-fluent-violet;
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-fluent-violet/25 bg-white/80 px-4 py-1.5 text-xs font-700 uppercase tracking-[0.18em] text-fluent-violet shadow-sm;
+    @apply inline-flex max-w-full items-center gap-1.5 rounded-full border border-fluent-violet/25 bg-white/80 px-3 py-1 text-[10px] font-700 uppercase tracking-[0.12em] text-fluent-violet shadow-sm sm:gap-2 sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.18em];
   }
 
   .section-pad {
-    @apply px-6 py-24 md:py-32;
+    @apply px-4 py-14 sm:px-6 sm:py-20 md:py-32;
+  }
+
+  .section-pad-compact {
+    @apply px-4 py-12 sm:px-6 sm:py-16 md:py-20;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .bg-aurora-hero-tint {
+    background: linear-gradient(
+      125deg,
+      rgba(99, 102, 241, 0.22) 0%,
+      rgba(168, 85, 247, 0.18) 38%,
+      rgba(34, 211, 238, 0.14) 72%,
+      rgba(99, 102, 241, 0.08) 100%
+    );
+    mix-blend-mode: multiply;
+  }
+
+  @media (max-width: 639px) {
+    .bg-aurora-hero-tint {
+      background: linear-gradient(
+        160deg,
+        rgba(99, 102, 241, 0.14) 0%,
+        rgba(168, 85, 247, 0.1) 50%,
+        rgba(34, 211, 238, 0.08) 100%
+      );
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

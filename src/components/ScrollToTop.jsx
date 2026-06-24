@@ -27,7 +27,8 @@ export default function ScrollToTop() {
           whileHover={{ scale: 1.12 }}
           whileTap={{ scale: 0.92 }}
           aria-label="Volver arriba"
-          className="fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/50 bg-white/55 text-slate-500 shadow-[0_4px_24px_-8px_rgba(15,23,42,0.18)] backdrop-blur-2xl transition-all duration-300 hover:bg-white/70 hover:text-slate-600 hover:border-slate-200/70"
+          className="fixed right-4 z-50 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/50 bg-white/55 text-slate-500 shadow-[0_4px_24px_-8px_rgba(15,23,42,0.18)] backdrop-blur-2xl transition-all duration-300 hover:border-slate-200/70 hover:bg-white/70 hover:text-slate-600 sm:bottom-6 sm:left-6 sm:right-auto sm:h-11 sm:w-11 sm:rounded-2xl"
+          style={{ bottom: "max(1.25rem, env(safe-area-inset-bottom))" }}
         >
           <ChevronUp className="h-5 w-5" strokeWidth={2} />
         </motion.button>

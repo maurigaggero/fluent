@@ -1,13 +1,13 @@
 # Fluent — Landing
 
-Landing page de **Fluent**, empresa de software argentina. Réplica rebrandeada con identidad propia: paleta Aurora (índigo / violeta / cyan), glassmorphism intenso, degradados animados y muchas animaciones.
+Landing page de **Fluent**, software factory argentina. Identidad Aurora (índigo / violeta / cyan), glassmorphism y gradientes animados.
 
 ## Stack
 
 - [Vite](https://vitejs.dev/) + [React 18](https://react.dev/)
 - [Tailwind CSS 3](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/) (animaciones)
-- [lucide-react](https://lucide.dev/) (íconos)
+- [Framer Motion](https://www.framer.com/motion/)
+- [lucide-react](https://lucide.dev/)
 
 ## Desarrollo
 
@@ -27,25 +27,28 @@ npm run preview  # sirve el build localmente
 
 ```
 src/
-  App.jsx                # ensambla las secciones
-  main.jsx               # entry point
-  index.css              # Tailwind + utilidades glass/gradiente
-  data/site.js           # TODO el contenido editable (textos, servicios, equipo, clientes)
+  App.jsx
+  main.jsx
+  index.css
+  data/site.js           # contenido editable
   components/
-    AuroraBackground.jsx # blobs animados de fondo
-    Navbar.jsx           # nav glass + menú mobile animado
-    Hero.jsx             # hero con degradado animado + stats con contador
+    AuroraBackground.jsx
+    Navbar.jsx
+    Hero.jsx
+    IndustryMarquee.jsx
     Services.jsx
-    ServiceCard.jsx      # card glass con spotlight que sigue al cursor
-    Clients.jsx          # marquee infinito
-    Team.jsx
-    TeamCard.jsx
-    Contact.jsx          # CTA principal
+    ServiceCard.jsx
+    ProcessTimeline.jsx
+    Clients.jsx
+    Contact.jsx
     Footer.jsx
-    Counter.jsx          # contador animado
-    ui/Reveal.jsx        # wrapper de scroll-reveal
+    Counter.jsx
+    ScrollToTop.jsx
+    ui/Reveal.jsx
+public/
+  images/hero-team-argentina.png
 ```
 
 ## Personalización
 
-Editá `src/data/site.js` para cambiar marca, contacto (WhatsApp, email), servicios, equipo y clientes. Los colores viven en `tailwind.config.js` (objeto `fluent`).
+Editá `src/data/site.js` para textos, servicios, clientes y contacto. Colores en `tailwind.config.js` (objeto `fluent`).
