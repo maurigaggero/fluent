@@ -3,7 +3,7 @@ export const brand = {
   email: "hola@fluent.com.ar",
   whatsapp:
     "https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida.",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/fluent.consulting/",
   linkedin: "https://linkedin.com/",
 };
 
