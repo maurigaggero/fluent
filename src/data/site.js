@@ -107,7 +107,7 @@ export const featuredCase = {
 
 export const clients = [
   "Resguardo Documental",
-  "Municipalidad de Córdoba",
+  "DyG Aluminios S.R.L.",
   "AutoMarketPro",
   "Ghia App",
 ];
