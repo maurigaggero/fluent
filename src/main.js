@@ -177,11 +177,8 @@ const fine = matchMedia("(hover: hover) and (pointer: fine)");
 // fly: suben desde abajo creciendo · slide: entran desde la derecha · zoom: crecen en el lugar
 const plans = {
   nosotros: () => [{ items: $$(".scard"), kind: "pile", slot: 0.6, dur: 0.5 }],
-  servicios: (narrow) => [
-    narrow
-      ? { items: $$(".card"), kind: "pile", slot: 0.5, dur: 0.45 }
-      : { items: $$(".card"), kind: "fly", slot: 0.22, dur: 0.45 },
-  ],
+  // cada card se asienta un escalón sobre la anterior; el clic cae en la primera
+  servicios: () => [{ items: $$(".card"), kind: "deck", slot: 0.62, dur: 0.45 }],
   band: () => [{ items: $$(".stats li"), kind: "slide", slot: 0.3, dur: 0.5 }],
   clientes: (narrow) =>
     narrow
@@ -249,6 +246,7 @@ function build() {
     (plans[ch.name]?.(narrow) ?? []).forEach((g) => {
       const recs = g.items.map((el, i) => {
         el.dataset.k = g.kind;
+        el.style.setProperty("--i", String(i));
         return { el, a: a + i * g.slot, dur: g.dur, t: 0 };
       });
       ch.items.push(...recs);
@@ -321,6 +319,7 @@ function update(now) {
     ch.items.forEach((it) => {
       it.t = ease(seg(v, it.a, it.a + it.dur));
       put(it.el, "--t", it.t);
+      if (it.el.dataset.k === "deck") it.el.style.pointerEvents = it.t > 0.08 ? "auto" : "none";
     });
     ch.piles.forEach((recs) => {
       let above = 0;
@@ -361,7 +360,12 @@ document.addEventListener("click", (e) => {
   const ch = chapters.find((c) => c.el.contains(target));
   if (!ch) return;
   e.preventDefault();
-  scrollTo({ top: ch.top + ch.done * pinH, behavior: "smooth" });
+  // Servicios abre en la primera card (Gestión ordenada), no con la pila ya armada
+  const card = ch.name === "servicios"
+    ? ch.items.find((it) => it.el === target || it.el.contains(target)) ?? ch.items[0]
+    : null;
+  const at = card ? card.a + card.dur : ch.done;
+  scrollTo({ top: ch.top + at * pinH, behavior: "smooth" });
 });
 
 // en el celular la barra del navegador dispara "resize" al scrollear:

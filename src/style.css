@@ -495,14 +495,14 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 70% center;
+  object-position: 46% 28%;
   animation: kenburns 18s ease-in-out infinite alternate;
   will-change: transform;
 }
 
 @keyframes kenburns {
-  from { transform: scale(1.16) translate3d(-2%, 1%, 0); }
-  to { transform: scale(1.04) translate3d(2%, -1%, 0); }
+  from { transform: scale(1.08) translate3d(-1%, 0, 0); }
+  to { transform: scale(1.02) translate3d(1%, -1%, 0); }
 }
 
 .hero-shade {
@@ -570,17 +570,17 @@ h3 {
   align-self: end;
   display: grid;
   justify-items: start;
-  gap: 24px;
+  gap: clamp(12px, 2vh, 20px);
   width: 100%;
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 140px var(--gut) 44px;
+  padding: clamp(92px, 12vh, 120px) var(--gut) clamp(16px, 2.4vh, 28px);
 }
 
 .hero-title {
   max-width: 15ch;
   color: #fff;
-  font-size: clamp(2.6rem, 7.2vw, 6rem);
+  font-size: clamp(2.15rem, 4.6vw, 4.4rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
   text-shadow: 0 6px 50px rgba(0, 0, 0, 0.4);
@@ -671,7 +671,7 @@ h3 {
   width: 100%;
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 var(--gut) 32px;
+  padding: 0 var(--gut) clamp(10px, 1.6vh, 20px);
 }
 
 .hero-caption {
@@ -716,12 +716,11 @@ h3 {
   --rx: 0deg;
   --ry: 0deg;
   position: absolute;
-  top: 50%;
   right: max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut) + 20px));
+  bottom: 104px;
   z-index: 0;
   display: none;
   perspective: 1400px;
-  transform: translateY(-46%);
 }
 
 .js .hero-device {
@@ -737,7 +736,7 @@ h3 {
 
 .phone {
   position: relative;
-  width: 300px;
+  width: min(280px, calc((100svh - 200px) * 300 / 640));
   aspect-ratio: 300 / 620;
   padding: 9px;
   border-radius: 58px;
@@ -1108,17 +1107,16 @@ h3 {
   }
 
   .hero-title {
-    font-size: clamp(3.4rem, 5.4vw, 5.4rem);
+    font-size: clamp(2.6rem, 4vw, 4.15rem);
   }
 
   .hero-in {
-    padding-right: calc(var(--gut) + 420px);
+    padding-right: calc(var(--gut) + min(420px, 34vw));
   }
-}
 
-@media (min-width: 1100px) and (max-height: 860px) {
-  .hero-device {
-    scale: 0.84;
+  .hero-down {
+    margin-left: 28px;
+    margin-right: auto;
   }
 }
 
@@ -2205,7 +2203,7 @@ h3 {
 }
 
 [data-mode="story"] .hero-device {
-  top: calc(50% - var(--leave, 0) * 26vh);
+  bottom: calc(104px + var(--leave, 0) * 26vh);
 }
 
 [data-mode="story"] .hero-device > *,
@@ -2235,6 +2233,232 @@ h3 {
   background: #fff;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+}
+
+/* deck: cada servicio se apoya sobre el anterior y deja ver título e ícono */
+[data-mode="story"] #servicios .cards {
+  --peek: 76px;
+  --card-h: 158px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  width: min(100%, 520px);
+  margin-top: 8px;
+}
+
+[data-mode="story"] #servicios .card[data-k="deck"] {
+  width: 100%;
+  height: var(--card-h);
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  opacity: clamp(0, calc(var(--t, 1) * 3), 1);
+  translate: 0 calc((1 - var(--t, 1)) * 12vh);
+  z-index: calc(var(--i, 0) + 1);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 12px 28px rgba(19, 20, 43, 0.08);
+}
+
+[data-mode="story"] #servicios .card[data-k="deck"]:not(:first-child) {
+  margin-top: calc(var(--peek) - var(--card-h));
+}
+
+[data-mode="story"] #servicios .card[data-k="deck"]:hover {
+  transform: none;
+}
+
+.svc-art {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  [data-mode="story"] #servicios {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(32px, 5vw, 80px);
+  }
+
+  [data-mode="story"] #servicios .sec-head {
+    grid-column: 1 / -1;
+  }
+
+  [data-mode="story"] #servicios .cards {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  [data-mode="story"] .svc-art {
+    position: relative;
+    grid-column: 1;
+    grid-row: 2;
+    display: block;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(19, 20, 43, 0.14);
+    opacity: var(--enter, 1);
+    translate: 0 calc((1 - var(--enter, 1)) * 8vh);
+  }
+
+  [data-mode="story"] .svc-art img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* acerca la foto a la notebook; la pantalla escala junto con ella */
+  [data-mode="story"] .svc-device {
+    position: relative;
+    scale: 1.3;
+    transform-origin: 50% 46%;
+  }
+}
+
+.svc-device {
+  container-type: inline-size;
+}
+
+/* pantalla de la MacBook: los % calzan con el panel negro de la foto (1152×864).
+   Sus propias medidas en cqw se resuelven contra .svc-device (la pantalla mide 61.4% de ese ancho);
+   las de sus hijos, contra la pantalla. */
+.svc-screen {
+  position: absolute;
+  top: 22.2%;
+  left: 19.3%;
+  width: 61.4%;
+  height: 52.5%;
+  container-type: inline-size;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 2.4cqw;
+  padding: 4.3cqw 3.7cqw 3cqw;
+  overflow: hidden;
+  border-radius: 0.7cqw 0.7cqw 0 0;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(79, 70, 229, 0.45), transparent 60%),
+    radial-gradient(40% 60% at 0% 100%, rgba(34, 211, 238, 0.14), transparent 70%),
+    linear-gradient(160deg, #22244a, var(--ink));
+  color: #fff;
+}
+
+.svc-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 5cqw 5cqw;
+  mask-image: linear-gradient(180deg, #000, transparent 80%);
+  pointer-events: none;
+}
+
+/* notch */
+.svc-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 11cqw;
+  height: 3cqw;
+  border-radius: 0 0 1.2cqw 1.2cqw;
+  background: #050506;
+  translate: -50% 0;
+}
+
+.svc-screen > * {
+  position: relative;
+}
+
+.svc-eyebrow {
+  color: var(--accent-soft);
+  font-family: var(--mono);
+  font-size: 2.3cqw;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.svc-title {
+  margin-top: 1.6cqw;
+  max-width: 34ch;
+  font-size: 5.6cqw;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.svc-title em {
+  color: var(--accent-soft);
+  font-style: normal;
+}
+
+.svc-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.6cqw;
+  height: 100%;
+  min-height: 0;
+  padding: 0 0.5cqw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.svc-chart span {
+  flex: 1;
+  height: var(--h);
+  border-radius: 1cqw 1cqw 0 0;
+  background: linear-gradient(180deg, var(--accent-soft), rgba(79, 70, 229, 0.35));
+}
+
+.svc-chart span:last-child {
+  background: linear-gradient(180deg, var(--cyan), rgba(34, 211, 238, 0.3));
+}
+
+.svc-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6cqw;
+}
+
+.svc-stats li {
+  display: grid;
+  gap: 0.8cqw;
+  padding: 2.2cqw 2cqw;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2cqw;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.svc-stats b {
+  font-size: 4.6cqw;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.svc-stats span {
+  color: var(--accent-soft);
+  font-family: var(--mono);
+  font-size: 1.6cqw;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  [data-mode="story"] #servicios {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  [data-mode="story"] #servicios .cards {
+    --peek: 64px;
+    --card-h: 140px;
+  }
 }
 
 /* fly: suben desde abajo creciendo, alternando el giro */
@@ -2551,12 +2775,17 @@ h3 {
   }
 
   .hero-in {
-    gap: 18px;
-    padding-bottom: 28px;
+    gap: 12px;
+    padding-top: 84px;
+    padding-bottom: 8px;
   }
 
   .hero-title {
-    font-size: clamp(2.3rem, 11vw, 3.4rem);
+    font-size: clamp(2rem, 8.4vw, 2.55rem);
+  }
+
+  .hero-sub {
+    font-size: 0.98rem;
   }
 
   .hero-actions {
@@ -2565,22 +2794,39 @@ h3 {
 
   .hero-actions .btn {
     flex: 1 1 100%;
+    padding: 12px 18px;
   }
 
   .trust {
-    font-size: 0.88rem;
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+
+  .trust li {
+    padding: 6px 12px 6px 8px;
   }
 
   .hero-caption {
     display: none;
   }
 
+  .hero-down {
+    width: 26px;
+    height: 40px;
+  }
+
   .hero-foot {
-    padding-bottom: 24px;
+    padding-bottom: 8px;
   }
 
   .ticker {
-    padding: 12px 0;
+    padding: 8px 0;
+  }
+
+  .ticker span {
+    gap: 18px;
+    padding-right: 18px;
+    font-size: 0.92rem;
   }
 
   .sec {
