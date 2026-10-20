@@ -28,6 +28,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
@@ -323,6 +324,12 @@ svg.fill use {
 }
 
 /* luces de fondo para que el vidrio tenga algo que difuminar */
+#servicios,
+#clientes,
+#contacto {
+  overflow: hidden;
+}
+
 #servicios::before,
 #clientes::before,
 #contacto::before {
