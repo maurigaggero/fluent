@@ -1,33 +1,391 @@
-<!DOCTYPE html>
-<html lang="es-AR" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Fluent · Software a medida para empresas</title>
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fluent · Software a medida para empresas</title>
+  <meta name="description" content="Fluent — Software Factory argentina. Diseñamos, desarrollamos e implementamos sistemas a medida para PyMEs y startups.">
+  <meta name="theme-color" content="#13142b">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Fluent">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fluent · Software a medida para empresas">
+  <meta property="og:description" content="Software a medida que fluye con tu negocio. Web Apps, automatizaciones e integraciones.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/hero-team-argentina.png" fetchpriority="high">
+  <link rel="stylesheet" href="/src/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.7 2.7L16 9.8"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.8 7L4 20l1-4.1A8 8 0 1 1 20 12Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5M9 8V2M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="m12 19 7-7 3 3-7 7-3-3Z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z"/><path d="m2 2 7.6 7.6"/><circle cx="11" cy="11" r="2"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6M2 9h20"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+  </svg>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
 
-    <meta
-      name="description"
-      content="Fluent — Software Factory argentina. Diseñamos, desarrollamos e implementamos sistemas a medida para PyMEs y startups."
-    />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:site_name" content="Fluent" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fluent · Software a medida para empresas" />
-    <meta
-      property="og:description"
-      content="Software a medida que fluye con tu negocio. Web Apps, automatizaciones e integraciones."
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="Fluent, inicio">
+      <img src="/favicon.svg" alt="" width="34" height="34">
+      <span>Fluent<b>.</b></span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Secciones">
+      <a href="#nosotros">Por qué Fluent</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-sm nav-cta" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener">Agendar reunión <svg><use href="#i-arrow"/></svg></a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><svg><use href="#i-menu"/></svg></button>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <img class="hero-bg" src="/images/hero-team-argentina.png" alt="" width="819" height="546" fetchpriority="high" decoding="async">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-lines" aria-hidden="true"></div>
+      <span class="hero-scan" aria-hidden="true"></span>
+
+      <div class="hero-in">
+        <p class="eyebrow eyebrow-light hero-rise">Software Factory · Hecho en Argentina</p>
+        <h1 class="hero-title" id="hero-title">Tu sistema a medida, <em>listo para operar.</em></h1>
+        <p class="hero-sub hero-rise">Diseñamos, desarrollamos e implementamos software para PyMEs y startups.</p>
+        <div class="hero-actions hero-rise">
+          <a class="btn" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener">Agendar reunión <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-glass" href="#servicios">Ver servicios</a>
+        </div>
+        <ul class="trust hero-rise">
+          <li><svg><use href="#i-zap"/></svg>Entrega en semanas</li>
+          <li><svg><use href="#i-gem"/></svg>Código escalable</li>
+          <li><svg><use href="#i-shield"/></svg>Soporte incluido</li>
+        </ul>
+      </div>
+
+      <div class="hero-device" id="hero-device" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ph-status"><span>9:41</span><i class="ph-island"></i><span class="ph-sig"><i></i><i></i><i></i><b></b></span></div>
+            <p class="ph-hello">Resumen de hoy</p>
+            <p class="ph-title">Panel de gestión</p>
+            <div class="ph-kpis">
+              <div class="ph-kpi"><span>Ventas</span><b>$1,2M</b><em>+18%</em></div>
+              <div class="ph-kpi"><span>Pedidos</span><b>142</b><em>+9%</em></div>
+            </div>
+            <div class="ph-card">
+              <div class="ph-card-top"><span>Semana</span><em>Lun — Dom</em></div>
+              <div class="ph-chart">
+                <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:70%"></span><span style="--h:58%"></span><span style="--h:86%"></span><span style="--h:74%"></span>
+              </div>
+            </div>
+            <ul class="ph-list">
+              <li><i class="ph-av">DY</i><div><b>Pedido #1042</b><span>Entregado</span></div><em>$84.500</em></li>
+              <li><i class="ph-av ph-av-2">RD</i><div><b>Pedido #1041</b><span>En camino</span></div><em>$32.900</em></li>
+              <li><i class="ph-av ph-av-3">GA</i><div><b>Pedido #1040</b><span>Facturado</span></div><em>$57.200</em></li>
+            </ul>
+            <nav class="ph-tabbar"><svg class="on"><use href="#i-dashboard"/></svg><svg><use href="#i-chart"/></svg><svg><use href="#i-users"/></svg><svg><use href="#i-flow"/></svg></nav>
+          </div>
+        </div>
+        <div class="float-card fc-1"><span class="chip"><svg><use href="#i-check"/></svg></span><div><b>Stock actualizado</b><span>Hace 2 min</span></div></div>
+        <div class="float-card fc-2"><span class="chip"><svg><use href="#i-chart"/></svg></span><div><b>+18% en ventas</b><span>Esta semana</span></div></div>
+      </div>
+
+      <div class="hero-foot hero-rise">
+        <p class="hero-caption"><span class="dot"></span><span>Discovery · Diseño · Desarrollo · Lanzamiento</span></p>
+        <a class="hero-down" href="#nosotros" aria-label="Bajar a la siguiente sección"><span></span></a>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" data-loop>
+        <span>Gestión interna</span><span>Automatización</span><span>SaaS</span><span>Integraciones API</span><span>E-commerce</span><span>Salud</span><span>Logística</span><span>Educación</span><span>Finanzas</span><span>B2B</span>
+      </div>
+    </div>
+
+    <!-- Por qué Fluent: tarjetas que se apilan con el scroll -->
+    <section class="sec" id="nosotros">
+      <div class="stack-wrap">
+        <div class="sec-head stack-head">
+          <p class="eyebrow reveal">Por qué Fluent</p>
+          <h2 class="reveal">Un equipo cercano que <em>entiende tu operación</em></h2>
+          <a class="btn reveal" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener">Contanos tu proyecto <svg><use href="#i-arrow"/></svg></a>
+          <figure class="media reveal">
+            <img src="/images/workspace-night.jpg" alt="Panel de métricas en una laptop junto a un smartphone sobre un escritorio" width="1024" height="768" loading="lazy" decoding="async">
+            <figcaption class="media-tag"><span class="dot"></span>Demos semanales</figcaption>
+          </figure>
+        </div>
+        <div class="stack" id="stack">
+          <article class="scard">
+            <span class="scard-n">01</span>
+            <span class="chip"><svg><use href="#i-search"/></svg></span>
+            <h3>Entendemos tu negocio</h3>
+            <p>El sistema sigue la lógica real de tu operación.</p>
+          </article>
+          <article class="scard scard-dark">
+            <span class="scard-n">02</span>
+            <span class="chip"><svg><use href="#i-zap"/></svg></span>
+            <h3>Entregas semanales</h3>
+            <p>Ves y probás el avance cada semana.</p>
+          </article>
+          <article class="scard scard-accent">
+            <span class="scard-n">03</span>
+            <span class="chip"><svg><use href="#i-code"/></svg></span>
+            <h3>El código es tuyo</h3>
+            <p>Limpio, documentado y 100% de tu empresa.</p>
+          </article>
+          <article class="scard">
+            <span class="scard-n">04</span>
+            <span class="chip"><svg><use href="#i-shield"/></svg></span>
+            <h3>Soporte que acompaña</h3>
+            <p>Seguimos cerca después del lanzamiento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="sec" id="servicios">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Qué hacemos</p>
+        <h2 class="reveal">Software a medida que <em>fluye con tu negocio</em></h2>
+      </div>
+
+      <ul class="cards">
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-dashboard"/></svg></span>
+          <h3>Gestión ordenada</h3>
+          <p>Ventas, clientes y stock en un solo lugar.</p>
+        </li>
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-flow"/></svg></span>
+          <h3>Automatizaciones</h3>
+          <p>Las tareas repetitivas corren solas.</p>
+        </li>
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-plug"/></svg></span>
+          <h3>Integraciones</h3>
+          <p>Facturación, pagos y planillas conectados.</p>
+        </li>
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-cloud"/></svg></span>
+          <h3>Siempre en línea</h3>
+          <p>Rápido y seguro, desde cualquier lugar.</p>
+        </li>
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-shield"/></svg></span>
+          <h3>Soporte continuo</h3>
+          <p>Revisamos, mejoramos y respondemos.</p>
+        </li>
+        <li class="card reveal">
+          <span class="chip"><svg><use href="#i-chart"/></svg></span>
+          <h3>Tableros claros</h3>
+          <p>El pulso del negocio, al día.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Banda oscura con números -->
+    <section class="band">
+      <img class="band-art" src="/images/glass-flow.jpg" alt="" width="1024" height="576" loading="lazy" decoding="async">
+      <div class="band-in">
+        <div class="band-head">
+          <p class="eyebrow eyebrow-light reveal">Resultados concretos</p>
+          <h2 class="reveal">De la idea a un sistema funcionando <em>en semanas, no en meses.</em></h2>
+        </div>
+        <ul class="stats">
+          <li class="reveal"><b data-count>15+</b><span>proyectos</span></li>
+          <li class="reveal"><b>4–8</b><span>semanas</span></li>
+          <li class="reveal"><b data-count>100%</b><span>código tuyo</span></li>
+          <li class="reveal"><b data-count>30</b><span>min de discovery</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Proceso: carrusel horizontal que avanza con el scroll -->
+    <section class="hs" id="proceso">
+      <div class="hs-pin">
+        <div class="hs-head">
+          <div class="sec-head">
+            <p class="eyebrow reveal">Cómo trabajamos</p>
+            <h2 class="reveal">De la idea al lanzamiento, <em>paso a paso</em></h2>
+          </div>
+          <div class="hs-meter" aria-hidden="true"><span id="hs-count">01</span><i><b id="hs-bar"></b></i><span>05</span></div>
+        </div>
+        <div class="hs-viewport" id="hs-viewport">
+          <ol class="hs-track" id="hs-track">
+            <li class="hcard">
+              <span class="hcard-n">01</span>
+              <span class="chip"><svg><use href="#i-search"/></svg></span>
+              <h3>Discovery</h3>
+              <p>Alcance y plazos claros.</p>
+              <span class="hcard-time"><svg><use href="#i-clock"/></svg>3–5 días</span>
+            </li>
+            <li class="hcard">
+              <span class="hcard-n">02</span>
+              <span class="chip"><svg><use href="#i-pen"/></svg></span>
+              <h3>Diseño</h3>
+              <p>Pantallas validadas antes de programar.</p>
+              <span class="hcard-time"><svg><use href="#i-clock"/></svg>1 semana</span>
+            </li>
+            <li class="hcard">
+              <span class="hcard-n">03</span>
+              <span class="chip"><svg><use href="#i-code"/></svg></span>
+              <h3>Desarrollo</h3>
+              <p>Por etapas, con demos semanales.</p>
+              <span class="hcard-time"><svg><use href="#i-clock"/></svg>3–5 semanas</span>
+            </li>
+            <li class="hcard">
+              <span class="hcard-n">04</span>
+              <span class="chip"><svg><use href="#i-check"/></svg></span>
+              <h3>QA</h3>
+              <p>Cada flujo probado con casos reales.</p>
+              <span class="hcard-time"><svg><use href="#i-clock"/></svg>3–5 días</span>
+            </li>
+            <li class="hcard hcard-dark">
+              <span class="hcard-n">05</span>
+              <span class="chip"><svg><use href="#i-rocket"/></svg></span>
+              <h3>Lanzamiento</h3>
+              <p>Publicamos y capacitamos a tu equipo.</p>
+              <span class="hcard-time"><svg><use href="#i-clock"/></svg>2–3 días</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clientes -->
+    <section class="sec" id="clientes">
+      <div class="sec-head sec-head-center">
+        <p class="eyebrow reveal">Casos reales</p>
+        <h2 class="reveal">Proyectos que <em>hablan por nosotros</em></h2>
+      </div>
+
+      <div class="marquee reveal" aria-label="Clientes">
+        <div class="marquee-track" data-loop>
+          <span>Resguardo Documental</span>
+          <span>DyG Aluminios S.R.L.</span>
+          <span>AutoMarketPro</span>
+          <span>Ghia App</span>
+          <span aria-hidden="true">Resguardo Documental</span>
+          <span aria-hidden="true">DyG Aluminios S.R.L.</span>
+          <span aria-hidden="true">AutoMarketPro</span>
+          <span aria-hidden="true">Ghia App</span>
+        </div>
+      </div>
+
+      <div class="cases">
+        <article class="case reveal">
+          <figure class="case-media">
+            <img src="/images/case-automotive.jpg" alt="Vendedor de una concesionaria consultando el inventario en una tablet" width="1024" height="768" loading="lazy" decoding="async">
+          </figure>
+          <div class="case-top">
+            <h3>AutoMarketPro</h3>
+            <span class="tag">Automotriz · Gestión</span>
+          </div>
+          <p class="case-result"><span>Resultado</span>Todo centralizado, sin errores de carga.</p>
+        </article>
+
+        <ul class="quotes">
+          <li class="quote reveal">
+            <blockquote>“Ahora consultamos todo desde un solo sistema y evitamos errores de carga.”</blockquote>
+            <p class="who"><b>Mariano Tizado</b><span>Dueño · Taller automotor</span></p>
+          </li>
+          <li class="quote reveal">
+            <blockquote>“Con el panel podemos ver estados, responder más rápido y tener la información ordenada.”</blockquote>
+            <p class="who"><b>Laura Ferrando</b><span>Gerenta · Distribuidora</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="sec" id="contacto">
+      <div class="contact">
+        <div class="contact-copy">
+          <p class="eyebrow reveal">Contacto</p>
+          <h2 class="reveal">Hagamos fluir <em>tu negocio</em></h2>
+          <p class="sec-intro reveal">30 minutos, sin costo ni compromiso.</p>
+
+          <div class="people">
+            <a class="person reveal" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener">
+              <p class="person-area">WhatsApp</p>
+              <h3>Escribinos directo</h3>
+              <span><svg><use href="#i-chat"/></svg>+54 9 3572 66-7719</span>
+            </a>
+            <a class="person reveal" href="mailto:hola@fluent.com.ar">
+              <p class="person-area">Mail</p>
+              <h3>Contanos tu idea</h3>
+              <span><svg><use href="#i-mail"/></svg>hola@fluent.com.ar</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="cta-panel reveal">
+          <img class="cta-art" src="/images/glass-flow.jpg" alt="" width="1024" height="576" loading="lazy" decoding="async">
+          <p class="eyebrow eyebrow-light"><span class="dot"></span>Discovery sin costo</p>
+          <h3>Empezá a ordenar tu operación</h3>
+          <ul class="cta-steps">
+            <li><b>01</b>Nos contás</li>
+            <li><b>02</b>Te proponemos</li>
+            <li><b>03</b>Arrancamos</li>
+          </ul>
+          <a class="btn btn-light" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener"><svg class="fill"><use href="#i-wa"/></svg>Agendar reunión</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <a class="logo logo-light" href="#top" aria-label="Fluent, inicio">
+        <img src="/favicon.svg" alt="" width="36" height="36" loading="lazy">
+        <span>Fluent<b>.</b></span>
+      </a>
+      <p>Software a medida. Hecho en Argentina.</p>
+      <ul>
+        <li><a href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener"><span>WhatsApp</span>+54 9 3572 66-7719</a></li>
+        <li><a href="mailto:hola@fluent.com.ar"><span>Mail</span>hola@fluent.com.ar</a></li>
+        <li><a href="https://www.instagram.com/fluent.consulting/" target="_blank" rel="noopener"><span>Instagram</span>@fluent.consulting</a></li>
+      </ul>
+      <small>© <span id="year">2026</span> Fluent · Software Factory</small>
+    </div>
+  </footer>
+
+  <nav class="mbar" aria-label="Contacto rápido">
+    <a href="#servicios"><svg><use href="#i-dashboard"/></svg>Servicios</a>
+    <a class="mbar-main" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener"><svg class="fill"><use href="#i-wa"/></svg>WhatsApp</a>
+    <a href="mailto:hola@fluent.com.ar"><svg><use href="#i-mail"/></svg>Mail</a>
+  </nav>
+
+  <a class="wa" href="https://wa.me/5493572667719?text=Hola%20Fluent!%20Quiero%20ordenar%20mi%20negocio%20con%20un%20sistema%20a%20medida." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg class="fill"><use href="#i-wa"/></svg>
+  </a>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
