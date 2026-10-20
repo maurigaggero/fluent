@@ -71,17 +71,18 @@ const revealObs = new IntersectionObserver(
 );
 reveals.forEach((el) => revealObs.observe(el));
 
+const root = document.documentElement;
+const mode = reduced ? "static" : "story";
+root.dataset.mode = mode;
+
 // ---------- Link activo según la sección visible ----------
+const markLink = (id) => links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`));
 const sections = [...links].map((a) => document.querySelector(a.getAttribute("href")));
 const spy = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${e.target.id}`));
-    }),
+  (entries) => entries.forEach((e) => e.isIntersecting && markLink(e.target.id)),
   { rootMargin: "-45% 0px -50% 0px" }
 );
-sections.forEach((s) => s && spy.observe(s));
+if (mode === "static") sections.forEach((s) => s && spy.observe(s));
 
 // ---------- Contadores ----------
 const countObs = new IntersectionObserver(
@@ -123,18 +124,16 @@ document.querySelectorAll(".card, .hcard").forEach((card) =>
   })
 );
 
-// ---------- Tarjetas apiladas ----------
-const scards = [...document.querySelectorAll(".scard")];
-scards.forEach((c, i) => c.style.setProperty("--i", i));
+// ---------- Tarjetas apiladas (modo estático) ----------
+document.querySelectorAll(".scard").forEach((c, i) => c.style.setProperty("--i", i));
 
 // ---------- Proceso: carrusel horizontal ----------
-const hs = document.getElementById("proceso");
 const hsTrack = document.getElementById("hs-track");
 const hsViewport = document.getElementById("hs-viewport");
 const hsBar = document.getElementById("hs-bar");
 const hsCount = document.getElementById("hs-count");
 const hcards = hsTrack.children.length;
-const pinMQ = matchMedia("(min-width: 901px)");
+const hitems = [...hsTrack.children].map((el) => ({ el, c: 0 }));
 let hsDistance = 0;
 
 const setMeter = (p) => {
@@ -142,76 +141,249 @@ const setMeter = (p) => {
   hsCount.textContent = String(Math.min(hcards, Math.floor(p * (hcards - 1)) + 1)).padStart(2, "0");
 };
 
-const layoutHs = () => {
-  hsTrack.style.transform = "";
-  hsDistance = Math.max(0, hsTrack.scrollWidth - innerWidth);
-  const pinned = pinMQ.matches && !reduced && hsDistance > 0;
-  hs.classList.toggle("is-pinned", pinned);
-  hs.style.height = pinned ? `${innerHeight + hsDistance}px` : "";
+const measureHcards = () => {
+  hitems.forEach((h) => {
+    const base = h.el.offsetParent === hsTrack ? 0 : hsTrack.offsetLeft;
+    h.c = h.el.offsetLeft - base + h.el.offsetWidth / 2;
+  });
 };
 
 hsViewport.addEventListener(
   "scroll",
   () => {
-    if (hs.classList.contains("is-pinned")) return;
+    if (mode === "story") return;
     const max = hsViewport.scrollWidth - hsViewport.clientWidth;
     setMeter(max > 0 ? hsViewport.scrollLeft / max : 0);
   },
   { passive: true }
 );
 
-// ---------- Bucle de scroll: progreso, nav, apilado y horizontal ----------
+// ---------- Recorrido por pantallas ----------
+// Cada sección queda fija en pantalla mientras sus tarjetas entran de a una. Al terminar,
+// la pantalla sube y se desvanece mientras la siguiente aparece en el mismo lugar.
+// Los tiempos están en "pantallas de scroll": 1 = una altura de ventana.
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const clamp = (v) => Math.min(1, Math.max(0, v));
+const seg = (v, a, b) => clamp((v - a) / (b - a));
+const ease = (t) => t * t * (3 - 2 * t);
+
+const ENTER = 0.7;
+const HOLD = 0.5;
+const narrowMQ = matchMedia("(max-width: 900px)");
+const fine = matchMedia("(hover: hover) and (pointer: fine)");
+
+// pile: caen sobre una pila y empujan hacia atrás a las anteriores
+// fly: suben desde abajo creciendo · slide: entran desde la derecha · zoom: crecen en el lugar
+const plans = {
+  nosotros: () => [{ items: $$(".scard"), kind: "pile", slot: 0.6, dur: 0.5 }],
+  servicios: (narrow) => [
+    narrow
+      ? { items: $$(".card"), kind: "pile", slot: 0.5, dur: 0.45 }
+      : { items: $$(".card"), kind: "fly", slot: 0.22, dur: 0.45 },
+  ],
+  band: () => [{ items: $$(".stats li"), kind: "slide", slot: 0.3, dur: 0.5 }],
+  clientes: (narrow) =>
+    narrow
+      ? [{ items: [$(".case"), ...$$(".quote")], kind: "pile", slot: 0.6, dur: 0.5 }]
+      : [
+          { items: [$(".case")], kind: "zoom", slot: 0.45, dur: 0.5 },
+          { items: $$(".quote"), kind: "pile", slot: 0.55, dur: 0.5 },
+        ],
+  contacto: (narrow) => [
+    narrow
+      ? { items: [...$$(".person"), $(".cta-panel")], kind: "pile", slot: 0.55, dur: 0.5 }
+      : { items: $$(".person"), kind: "slide", slot: 0.3, dur: 0.5 },
+    ...(narrow ? [] : [{ items: [$(".cta-panel")], kind: "zoom", slot: 0.4, dur: 0.5 }]),
+    { items: $$(".cta-steps li"), kind: "slide", slot: 0.2, dur: 0.4 },
+  ],
+};
+
+const chapters = $$(".ch").map((el, i, all) => {
+  const pin = el.querySelector(".ch-pin");
+  const stage = pin.firstElementChild;
+  const name = el.dataset.ch;
+  return {
+    el, pin, stage, name,
+    id: stage.id || null,
+    first: i === 0,
+    last: i === all.length - 1,
+    fit: name !== "hero" && name !== "hs",
+    items: [], piles: [], top: 0, len: 1, done: 0,
+  };
+});
+
+let narrow = narrowMQ.matches;
+let pinH = 0;
+let drawn = -1;
+let lastT = 0;
+let queued = false;
+
+// escribe una variable sólo si cambió, para no ensuciar el estilo en cada cuadro
+const put = (el, k, v) => {
+  const s = v.toFixed(4);
+  el._v ??= {};
+  if (el._v[k] === s) return;
+  el._v[k] = s;
+  el.style.setProperty(k, s);
+};
+
+// offsetTop ignora los transforms, así la animación no altera su propia medición
+const docTop = (el) => {
+  let y = 0;
+  for (let n = el; n; n = n.offsetParent) y += n.offsetTop;
+  return y;
+};
+
+function build() {
+  narrow = narrowMQ.matches;
+  chapters.forEach((ch) => {
+    ch.items.forEach(({ el }) => {
+      delete el.dataset.k;
+      ["--t", "--depth"].forEach((k) => el.style.removeProperty(k));
+      el._v = {};
+    });
+    ch.items = [];
+    ch.piles = [];
+    let a = ch.first ? 0 : ENTER;
+    (plans[ch.name]?.(narrow) ?? []).forEach((g) => {
+      const recs = g.items.map((el, i) => {
+        el.dataset.k = g.kind;
+        return { el, a: a + i * g.slot, dur: g.dur, t: 0 };
+      });
+      ch.items.push(...recs);
+      if (g.kind === "pile") ch.piles.push(recs);
+      a += g.items.length * g.slot;
+    });
+    ch.done = ch.items.reduce((m, it) => Math.max(m, it.a + it.dur), 0);
+  });
+}
+
+function measure() {
+  if (mode !== "story") return;
+  pinH = chapters[0].pin.clientHeight;
+  hsTrack.style.transform = "";
+  hsDistance = Math.max(0, hsTrack.scrollWidth - innerWidth);
+
+  chapters.forEach((ch, i) => {
+    if (ch.name === "hs") ch.done = ENTER + hsDistance / pinH;
+    const hold = ch.done > 0 ? HOLD : 0;
+    ch.len = ch.done + hold + (ch.last ? 0 : 1);
+    ch.el.style.height = `${(ch.len + 1) * pinH}px`;
+    // cada pantalla arranca cuando la anterior empieza a irse: las dos comparten el mismo lugar
+    ch.el.style.marginTop = i ? `${-2 * pinH}px` : "";
+    if (ch.fit) {
+      const cs = getComputedStyle(ch.pin);
+      const room = ch.pin.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      put(ch.stage, "--fit", Math.min(1, room / ch.stage.offsetHeight));
+    }
+  });
+  chapters.forEach((ch) => (ch.top = docTop(ch.el)));
+  measureHcards();
+  update();
+}
+
 const progress = document.getElementById("progress");
 const mbar = document.querySelector(".mbar");
-let ticking = false;
 
-const onScroll = () => {
-  ticking = false;
+function update(now) {
+  queued = false;
   const y = scrollY;
   const vh = innerHeight;
-  const max = document.documentElement.scrollHeight - vh;
-
+  const max = root.scrollHeight - vh;
   progress.style.setProperty("--p", max > 0 ? y / max : 0);
   nav.classList.toggle("is-scrolled", y > 24);
   mbar.classList.toggle("is-show", y > vh * 0.6);
+  if (mode !== "story") return;
 
-  if (reduced) return;
-
-  scards.forEach((card, i) => {
-    const next = scards[i + 1];
-    if (!next) return;
-    const cr = card.getBoundingClientRect();
-    const nr = next.getBoundingClientRect();
-    const overlap = Math.min(1, Math.max(0, (cr.bottom - nr.top) / cr.height));
-    card.style.setProperty("--s", (1 - overlap * 0.06).toFixed(4));
-    card.style.setProperty("--b", (1 - overlap * 0.12).toFixed(4));
-  });
-
-  if (hs.classList.contains("is-pinned")) {
-    const top = hs.getBoundingClientRect().top;
-    const p = hsDistance > 0 ? Math.min(1, Math.max(0, -top / hsDistance)) : 0;
-    hsTrack.style.transform = `translate3d(${(-p * hsDistance).toFixed(1)}px, 0, 0)`;
-    setMeter(p);
+  // con mouse la rueda salta de a pasos: la animación sigue al scroll con un poco de inercia
+  if (typeof now !== "number" || drawn < 0 || !fine.matches) {
+    drawn = y;
+  } else {
+    const dt = Math.min(50, now - lastT || 16);
+    drawn += (y - drawn) * (1 - Math.exp(-dt / 110));
+    if (Math.abs(y - drawn) < 0.5) drawn = y;
   }
-};
+  lastT = typeof now === "number" ? now : 0;
+  if (drawn !== y) requestTick();
+
+  let active = null;
+  chapters.forEach((ch) => {
+    const v = (drawn - ch.top) / pinH;
+    const enter = ch.first ? 1 : ease(seg(v, 0, ENTER));
+    const leave = ch.last ? 0 : seg(v, ch.len - 1, ch.len);
+    const on = enter > 0.5 && leave < 0.5;
+    put(ch.el, "--enter", enter);
+    put(ch.el, "--leave", leave);
+    ch.el.classList.toggle("is-on", on);
+    if (on && ch.id) active = ch.id;
+
+    ch.items.forEach((it) => {
+      it.t = ease(seg(v, it.a, it.a + it.dur));
+      put(it.el, "--t", it.t);
+    });
+    ch.piles.forEach((recs) => {
+      let above = 0;
+      for (let i = recs.length - 1; i >= 0; i--) {
+        put(recs[i].el, "--depth", above);
+        above += recs[i].t;
+      }
+    });
+
+    if (ch.name === "hs") {
+      const p = ch.done > ENTER ? seg(v, ENTER, ch.done) : 0;
+      const shift = -p * hsDistance;
+      hsTrack.style.transform = `translate3d(${shift.toFixed(1)}px, 0, 0)`;
+      setMeter(p);
+      // coverflow: la tarjeta más cercana al centro queda al frente
+      const half = innerWidth / 2;
+      hitems.forEach((h) => {
+        const d = Math.min(1, Math.max(-1, (h.c + shift - half) / half));
+        put(h.el, "--d", d);
+        put(h.el, "--k", Math.abs(d));
+      });
+    }
+  });
+  if (active) markLink(active);
+}
 
 const requestTick = () => {
-  if (ticking) return;
-  ticking = true;
-  requestAnimationFrame(onScroll);
+  if (queued) return;
+  queued = true;
+  requestAnimationFrame(update);
 };
 
-const relayout = () => {
-  layoutHs();
-  requestTick();
-};
+// los links del menú llevan al punto del recorrido donde esa pantalla ya está completa
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a || mode !== "story" || a.hash.length < 2) return;
+  const target = document.querySelector(a.hash);
+  const ch = chapters.find((c) => c.el.contains(target));
+  if (!ch) return;
+  e.preventDefault();
+  scrollTo({ top: ch.top + ch.done * pinH, behavior: "smooth" });
+});
 
+// en el celular la barra del navegador dispara "resize" al scrollear:
+// sólo se vuelve a medir si de verdad cambió el ancho o el alto de la pantalla
+let lastW = innerWidth;
+let lastH = 0;
+addEventListener("resize", () => {
+  if (mode !== "story") return requestTick();
+  const h = chapters[0].pin.clientHeight;
+  if (innerWidth === lastW && h === lastH) return;
+  lastW = innerWidth;
+  lastH = h;
+  if (narrowMQ.matches !== narrow) build();
+  measure();
+});
 addEventListener("scroll", requestTick, { passive: true });
-addEventListener("resize", relayout);
-addEventListener("load", relayout);
-pinMQ.addEventListener("change", relayout);
-document.fonts?.ready.then(relayout);
-layoutHs();
-onScroll();
+addEventListener("load", measure);
+document.fonts?.ready.then(measure);
+
+if (mode === "story") build();
+measure();
+update();
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
