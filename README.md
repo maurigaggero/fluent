@@ -25,7 +25,7 @@ src/
   main.js         # menú, animaciones de entrada, contadores, tarjetas apiladas y carrusel de proceso
 public/
   favicon.svg
-  images/hero-team-argentina.png
+  images/hero-team-argentina.webp
 ```
 
 ## Personalización
