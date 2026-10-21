@@ -38,22 +38,6 @@ title.setAttribute("aria-label", title.textContent);
 splitWords(title);
 requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("is-ready")));
 
-// ---------- Hero: el teléfono se inclina siguiendo el puntero ----------
-const device = document.getElementById("hero-device");
-if (!reduced && matchMedia("(hover: hover)").matches) {
-  hero.addEventListener("pointermove", (e) => {
-    const r = hero.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    device.style.setProperty("--ry", `${(x * 16).toFixed(2)}deg`);
-    device.style.setProperty("--rx", `${(-y * 10).toFixed(2)}deg`);
-  });
-  hero.addEventListener("pointerleave", () => {
-    device.style.setProperty("--ry", "0deg");
-    device.style.setProperty("--rx", "0deg");
-  });
-}
-
 // ---------- Aparición escalonada ----------
 const reveals = document.querySelectorAll(".reveal");
 reveals.forEach((el) => {
