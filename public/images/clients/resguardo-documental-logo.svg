@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Resguardo Documental">
+  <defs>
+    <linearGradient id="rd-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f46e5"/>
+      <stop offset="1" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#rd-g)" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M36 9c-7 4.8-14.5 6.2-20 6.2a2 2 0 0 0-2 2v17c0 15 10.5 22.5 21.3 26.3a2 2 0 0 0 1.4 0C47.5 56.7 58 49.2 58 34.2v-17a2 2 0 0 0-2-2c-5.5 0-13-1.4-20-6.2Z"/>
+    <path d="M28 33.5l5.5 5.5L45 27.5"/>
+  </g>
+  <g fill="#13142b" font-family="'Plus Jakarta Sans', system-ui, sans-serif">
+    <text x="78" y="33" font-size="22" font-weight="800" letter-spacing="-0.5">Resguardo</text>
+    <text x="78" y="56" font-size="16" font-weight="600" fill="#4b4f68" letter-spacing="0.5">Documental</text>
+  </g>
+</svg>

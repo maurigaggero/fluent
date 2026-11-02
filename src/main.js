@@ -95,12 +95,13 @@ document.querySelectorAll("[data-loop]").forEach((track) => {
   [...track.children].forEach((item) => {
     const clone = item.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
+    if (clone.matches("a")) clone.tabIndex = -1;
     track.append(clone);
   });
 });
 
 // ---------- Luz que sigue al cursor ----------
-document.querySelectorAll(".card, .hcard").forEach((card) =>
+document.querySelectorAll(".card, .hcard, .pcard, .lcard").forEach((card) =>
   card.addEventListener("pointermove", (e) => {
     const r = card.getBoundingClientRect();
     card.style.setProperty("--mx", `${e.clientX - r.left}px`);
@@ -164,6 +165,7 @@ const plans = {
   // cada card se asienta un escalón sobre la anterior; el clic cae en la primera
   servicios: () => [{ items: $$(".card"), kind: "deck", slot: 0.62, dur: 0.45 }],
   band: () => [{ items: $$(".stats li"), kind: "slide", slot: 0.3, dur: 0.5 }],
+  productos: () => [{ items: [$("#productos .marquee")], kind: "zoom", slot: 0.45, dur: 0.5 }],
   clientes: (narrow) =>
     narrow
       ? [{ items: [$(".case"), ...$$(".quote")], kind: "pile", slot: 0.6, dur: 0.5 }]

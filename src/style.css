@@ -276,7 +276,8 @@ svg.fill use {
 .quote,
 .person,
 .hcard:not(.hcard-dark),
-.marquee-track span {
+.pcard,
+.lcard {
   border: 1px solid rgba(255, 255, 255, 0.75);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.55));
   box-shadow:
@@ -294,7 +295,8 @@ svg.fill use {
 .scard::after,
 .case::after,
 .stats li::after,
-.marquee-track span::after {
+.pcard::after,
+.lcard::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -320,18 +322,21 @@ svg.fill use {
 .scard:hover::after,
 .case:hover::after,
 .stats li:hover::after,
-.marquee-track span:hover::after {
+.pcard:hover::after,
+.lcard:hover::after {
   background-position: -30% 0;
 }
 
 /* luces de fondo para que el vidrio tenga algo que difuminar */
 #servicios,
+#productos,
 #clientes,
 #contacto {
   overflow: hidden;
 }
 
 #servicios::before,
+#productos::before,
 #clientes::before,
 #contacto::before {
   content: "";
@@ -349,6 +354,12 @@ svg.fill use {
   top: 18%;
   right: -6%;
   background: radial-gradient(circle, rgba(129, 140, 248, 0.8), rgba(34, 211, 238, 0.35) 60%, transparent 70%);
+}
+
+#productos::before {
+  top: 30%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.5), rgba(129, 140, 248, 0.35) 60%, transparent 70%);
 }
 
 #clientes::before {
@@ -1411,39 +1422,181 @@ h3 {
 }
 
 .marquee-track {
+  --gap: 12px;
   display: flex;
-  gap: 12px;
+  gap: var(--gap);
   width: max-content;
-  animation: marquee 45s linear infinite;
+  animation: marquee var(--dur, 45s) linear infinite;
 }
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 
-.marquee-track span {
-  position: relative;
-  display: grid;
-  place-items: center;
-  height: clamp(52px, 5vw, 62px);
-  padding: 0 clamp(20px, 2.2vw, 32px);
-  overflow: hidden;
-  border-radius: 18px;
-  color: var(--ink);
-  font-size: clamp(0.98rem, 1.3vw, 1.18rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  transition: color 0.25s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+.marquee-cards {
+  padding: 14px 0 30px;
 }
 
-.marquee-track span:hover {
-  color: var(--accent);
-  transform: translateY(-4px);
+.marquee-cards .marquee-track {
+  --gap: 20px;
+  --dur: 60s;
+}
+
+.marquee-reverse .marquee-track {
+  --dur: 50s;
+  animation-direction: reverse;
 }
 
 @keyframes marquee {
-  to { transform: translateX(calc(-50% - 10px)); }
+  to { transform: translateX(calc(-50% - var(--gap) / 2)); }
+}
+
+/* Productos: ilustración arriba, texto y dominio abajo */
+.pcard,
+.lcard {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s;
+}
+
+.pcard {
+  width: clamp(270px, 24vw, 340px);
+  border-radius: 26px;
+}
+
+.pcard::before,
+.lcard::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(79, 70, 229, 0.14), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.pcard:hover,
+a.lcard:hover {
+  box-shadow: 0 30px 60px rgba(19, 20, 43, 0.14);
+  transform: translateY(-6px);
+}
+
+.pcard:hover::before,
+.lcard:hover::before {
+  opacity: 1;
+}
+
+.pcard-media,
+.lcard-media {
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.pcard-media img,
+.lcard-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pcard-media {
+  aspect-ratio: 4 / 3;
+}
+
+.pcard:hover .pcard-media img,
+a.lcard:hover .lcard-media img {
+  transform: scale(1.06);
+}
+
+.pcard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px 22px;
+}
+
+.pcard h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.pcard p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.pcard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: var(--accent-deep);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.pcard-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s;
+}
+
+.pcard:hover .pcard-link svg {
+  transform: translateX(4px);
+}
+
+/* Clientes: ilustración con el logo apoyado en una pastilla blanca */
+.lcard {
+  width: clamp(230px, 19vw, 270px);
+  border-radius: 22px;
+}
+
+.lcard-media {
+  aspect-ratio: 16 / 9;
+}
+
+.lcard-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 16px;
+  text-align: center;
+}
+
+.lcard-logo {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 72px;
+  margin-top: -32px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(19, 20, 43, 0.12);
+}
+
+.lcard-logo img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 46px;
+  object-fit: contain;
+}
+
+.lcard .tag {
+  color: var(--muted);
+  font-size: 0.62rem;
 }
 
 /* ---------- Contacto ---------- */
@@ -1768,6 +1921,7 @@ h3 {
 
 /* las tarjetas entran desde fuera de la sección */
 [data-mode="story"] #servicios,
+[data-mode="story"] #productos,
 [data-mode="story"] #clientes,
 [data-mode="story"] #contacto {
   overflow: visible;
@@ -2147,7 +2301,6 @@ h3 {
   }
 
   [data-mode="story"] .stack-head .media,
-  [data-mode="story"] .marquee,
   [data-mode="story"] .contact .sec-intro {
     display: none;
   }
@@ -2443,11 +2596,44 @@ h3 {
     border-radius: 28px;
   }
 
-  .marquee-track span {
-    height: 52px;
-    padding: 0 18px;
-    border-radius: 16px;
-    font-size: 0.95rem;
+  .marquee-cards {
+    padding: 8px 0 18px;
+  }
+
+  .marquee-cards .marquee-track {
+    --gap: 14px;
+  }
+
+  .pcard {
+    width: 250px;
+    border-radius: 20px;
+  }
+
+  .pcard-body {
+    padding: 14px 16px 16px;
+  }
+
+  .pcard h3 {
+    font-size: 1.2rem;
+  }
+
+  .pcard p {
+    font-size: 0.88rem;
+  }
+
+  .lcard {
+    width: 200px;
+    border-radius: 18px;
+  }
+
+  .lcard-logo {
+    height: 60px;
+    margin-top: -26px;
+    padding: 10px 14px;
+  }
+
+  .lcard-logo img {
+    max-height: 38px;
   }
 
   .case {
@@ -2544,6 +2730,15 @@ h3 {
   .w > span {
     opacity: 1;
     transform: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .marquee-track {
+    padding: 0 var(--gut);
   }
 
   .hero-bg {
